@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'BRLL'
+output("Welcome to rlic!!");
+output("iso directory ex: /home/user1/ubuntu.iso :");
+isodir = listen;
+exec("lsblk");
+output("Usb or SD :");
+deviceid = listen;
+output("Installing #{isodir} to #{deviceid} thats correct? [y,n]");
+correctu = listen;
+iseql(correctu,"y",exec("dd if=#{isodir} of=#{deviceid} bs=1M"))
+
